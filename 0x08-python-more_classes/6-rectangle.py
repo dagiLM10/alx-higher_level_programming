@@ -11,7 +11,7 @@ class Rectangle:
 
     number_of_instances = 0
 
-    def __init__(self, width=0, height-0):
+    def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
 
         Args:
@@ -52,7 +52,7 @@ class Rectangle:
         """Return the area of the rectangle."""
         return (self.__width * self.__height)
 
-    def perimeter(self)
+    def perimeter(self):
         """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
@@ -77,10 +77,10 @@ class Rectangle:
     def __repr__(self):
         """Return the string representation of the rectangle."""
         rect = "Rectangle" + str(self.__width)
-        rect += ", " + str(self.__height)) + ")"
+        rect += ", " + str(self.__height) + ")"
         return (rect)
 
     def __del__(self):
         """Print a message for every deletion of a rectangle."""
-        type (self) .number_of_instance -= 1
+        type (self).number_of_instance -= 1
         print ("bye rectangle...")

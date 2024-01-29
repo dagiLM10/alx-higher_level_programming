@@ -12,7 +12,7 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-    def __init__(self, width=0, height-0):
+    def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
 
         Args:
@@ -83,5 +83,5 @@ class Rectangle:
 
     def __del__(self):
         """Print a message for every deletion of a rectangle."""
-        type (self) .number_of_instance -= 1
+        type (self).number_of_instance -= 1
         print ("Bye rectangle...")
