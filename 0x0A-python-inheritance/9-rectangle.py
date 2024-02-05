@@ -14,7 +14,7 @@ class Rectangle(BaseGeometry):
             height (int): The height of the new Rectangle.
         """
         super().integer_validator("width", width)
-        self.___width = width
+        self.__width = width
         super().integer_validator("height", height)
         self.__height = height
 
@@ -25,5 +25,5 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """Return the print() and str() representation of a Rectangle."""
         string = "[" + str(self.__class__.__name__) + "] "
-        string += str(self.__width) + "/" + str(self.__height)
+        string = str(self.__width) + "/" + str(self.__height)
         return string
