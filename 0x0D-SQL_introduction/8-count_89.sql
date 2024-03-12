@@ -1,3 +1,4 @@
--- lists all the cities of California that can be found in the database hbtn_0d_usa
--- lists all rows of the column in a database
-SELECT id, name FROM cities WHERE state_id = (SELECT id FROM states WHERE name = 'California') ORDER BY id ASC;
+-- Displays the number of records with id = 89 in the table first_table in my MySQL server.
+SELECT COUNT(*)
+FROM 'first_table'
+WHERE 'id' = 89;
