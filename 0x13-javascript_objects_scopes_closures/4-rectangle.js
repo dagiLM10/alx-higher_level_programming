@@ -6,6 +6,8 @@ class Rectangle {
       this.width = h;
     }
   }
+
+
   print () {
     for (let i = 0; i < this.height; i++) {
       let s = '';
@@ -16,16 +18,19 @@ class Rectangle {
     }
   }
 
+
   rotate () {
     const aux = this.width;
     this.width = this.height;
     this.height = aux;
   }
 
+
   double () {
     this.width *= 2;
     this.height *= 2;
   }
 }
+
 
 module.exports = Rectangle;
