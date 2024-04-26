@@ -1,22 +1,17 @@
 #!/usr/bin/python3
 """Send a request to the url and print the response"""
 
-from urllib import request, error
-from sys import argv
+import sys
+import urllib.error
+import urllib.request
 
-
-def request_header_property(url: str) -> str:
-    """
-    Send a request to the URL specified and
-    get the response and handel exceptions
-    Args:
-        url (str): The URL to query
-    """
-    try:
-        with request.urlopen(url) as response:
-            return response.read().decode('utf-8')
-    except error.HTTPError as e:
-        return "Error code: {}".format(e.code)
 
 if __name__ == "__main__":
-    print(request_header_property(argv[1]))
+    url = sys.argv[1]
+
+    request = urllib.request.Request(url)
+    try:
+        with urllib.request.urlopen(request) as response:
+            print(response.read().decode("ascii"))
+    except urllib.error.HTTPError as e:
+        print("Error code: {}".format(e.code))
