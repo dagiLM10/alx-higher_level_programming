@@ -29,7 +29,7 @@ def send_query(query_string: str) -> str:
 
 
 if __name__ == "__main__":
-    if len(argv >= 2:
-            print(send_query(argv[1]))
-        else:
-            print(send_query(""))
+    if len(argv) >= 2:
+        print(send_query(argv[1]))
+    else:
+        print(send_query(""))
