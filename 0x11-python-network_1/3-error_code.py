@@ -16,7 +16,7 @@ def request_header_property(url: str) -> str:
         with request.urlopen(url) as response:
             return response.read().decode('utf-8')
     except error.HTTPError as e:
-            return "Error code: {}".format(e.code)
+        return "Error code: {}".format(e.code)
 
 if __name__ == "__main__":
     print(request_header_property(argv[1]))
