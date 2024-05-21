@@ -1,23 +1,33 @@
 #!/usr/bin/node
-// web scrapper
 
 const request = require('request');
 
-request.get(process.argv[2], { json: true }, (error, response, body) => {
-	if (error) {
-		console.log(error);
-		return;
-	}
+const apiUrl = process.argv[2];
 
-	const taskCompleted = {};
-	body.forEach((todo) => {
-		if (todo.completed) {
-			if (!tasksCompleted[todo.userID]) {
-				tasksCompleted[todo.userId] = 1;
-			} esle {
-				tasksCompleted[todo.userId] += 1;
+request(apiUrl, function (error, response, body) {
+	if (!error && response.statusCode === 200) {
+		try {
+		const todos = JSON.parse(body);
+
+		const completed = {};
+
+		todos.forEach((todo) => {
+			if (todo.completed) {
+				if (completed[todo.userId] === undefined) {
+					completed[todo.userId] = 1;
+				} else {
+					completed[todo.userId]++;
+				}
 			}
+		});
+
+		const output = `{${Object.entries(completed).map(([key, value]) => ` '${key}': ${value}`).join(',\n ')} }`;
+
+		console.log(Object.keys(completed).length > 2 ? output : completed);
+		} catch (parseError) {
+		console.error('Error parsing JSON:', parseError);
 		}
-	});
-	console.log(taskCompleted);
+	} else {
+	console.error('Error:', error);
+	}
 });
